@@ -1,11 +1,6 @@
 import React from 'react';
 
-type Props = {
-  className?: string;
-  color?: string;
-};
-
-const Resize: React.FC<Props> = ({ className, color }) => {
+const Minimize = ({ className, color }) => {
   return (
     <svg
       {...{ className }}
@@ -17,13 +12,11 @@ const Resize: React.FC<Props> = ({ className, color }) => {
       preserveAspectRatio="xMidYMid"
     >
       <g fill="none">
-        <path
-          d="M26.5 20.5h-8v-8h8zm0-2h2v-8h-8v2"
-        />
         {/* <path d="M0 0H46V30H0z" /> */}
+        <path d="M17.37 15.5L29.54 15.5" />
       </g>
     </svg>
   );
 };
 
-export default Resize;
+export default Minimize;

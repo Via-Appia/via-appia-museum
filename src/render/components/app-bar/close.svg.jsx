@@ -1,11 +1,6 @@
 import React from 'react';
 
-type Props = {
-  className?: string;
-  color?: string;
-};
-
-const Minimize: React.FC<Props> = ({ className, color }) => {
+const Close = ({ className }) => {
   return (
     <svg
       {...{ className }}
@@ -17,11 +12,10 @@ const Minimize: React.FC<Props> = ({ className, color }) => {
       preserveAspectRatio="xMidYMid"
     >
       <g fill="none">
-        {/* <path d="M0 0H46V30H0z" /> */}
-        <path d="M17.37 15.5L29.54 15.5" />
+        <path d="M18.5 10.5l9 9m0-9l-9 9" />
       </g>
     </svg>
   );
 };
 
-export default Minimize;
+export default Close;

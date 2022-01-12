@@ -1,8 +1,12 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import { autoUpdater } from 'electron-updater';
 import { hostname } from 'os';
+import { serverSetup, socketSetup } from './server';
 
-let win: BrowserWindow | null;
+serverSetup();
+socketSetup()
+
+let win;
 
 function createWindow() {
   win = new BrowserWindow({
@@ -26,13 +30,13 @@ function createWindow() {
     // win.webContents.openDevTools();
   } else {
     const HOST = hostname().toLowerCase();
-    const PORT = 3000;
+    const PORT = 8000;
     win.loadURL(`http://${HOST}:${PORT}/`);
     win.webContents.openDevTools();
   }
 
   win.once('ready-to-show', () => {
-    (win as BrowserWindow).show();
+    (win).show();
   });
 
   win.on('closed', () => {
@@ -69,11 +73,11 @@ ipcMain.on('app_version', (event) => {
 });
 
 autoUpdater.on('update-available', () => {
-  (win as BrowserWindow).webContents.send('update_available');
+  (win).webContents.send('update_available');
 });
 
 autoUpdater.on('update-downloaded', () => {
-  (win as BrowserWindow).webContents.send('update_downloaded');
+  (win).webContents.send('update_downloaded');
 });
 
 ipcMain.on('restart_app', () => {

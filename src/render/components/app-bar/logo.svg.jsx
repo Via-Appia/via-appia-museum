@@ -1,11 +1,6 @@
 import React from 'react';
 
-type Props = {
-  className?: string;
-  color?: string;
-};
-
-const Logo: React.FC<Props> = ({ className, color }) => {
+const Logo = ({ className, color }) => {
   return (
     <svg
       {...{ className }}

@@ -7,9 +7,8 @@ import Close from './close.svg';
 import Resize from './resize.svg';
 import Minimize from './minimize.svg';
 
-// type Props = {};
 
-const AppBar: React.FC = () => {
+const AppBar = () => {
   const { name, version } = ipcRenderer.sendSync('APP_TITLE_REQUEST');
   const color = '#222';
 

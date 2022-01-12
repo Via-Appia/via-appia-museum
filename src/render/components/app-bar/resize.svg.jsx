@@ -1,10 +1,6 @@
 import React from 'react';
 
-type Props = {
-  className?: string;
-};
-
-const Close: React.FC<Props> = ({ className }) => {
+const Resize = ({ className, color }) => {
   return (
     <svg
       {...{ className }}
@@ -16,10 +12,13 @@ const Close: React.FC<Props> = ({ className }) => {
       preserveAspectRatio="xMidYMid"
     >
       <g fill="none">
-        <path d="M18.5 10.5l9 9m0-9l-9 9" />
+        <path
+          d="M26.5 20.5h-8v-8h8zm0-2h2v-8h-8v2"
+        />
+        {/* <path d="M0 0H46V30H0z" /> */}
       </g>
     </svg>
   );
 };
 
-export default Close;
+export default Resize;
